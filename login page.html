@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Validation</title>
+	<style type="text/css">
+		body
+		{
+			background-image: url(pexels-photo-249798.jpg);
+			background-size: cover;
+		}
+	form
+	{
+		width: 50%;
+		background-color: pink;
+		margin-top: 90px;
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+</style>
+</head>
+<body>
+	<a href="java3.html"><input type="button"value="Back" style="background-color: brown;color: white;"></a>
+	<a href="java5.html"><input type="button"value="Next" style="background-color: brown;color: white; float: right;" ></a>
+	<center>
+<form action="abc.asp" method="post" onsubmit="return (validate())">
+	<img src="Checklist-icon.png" width="50px" height="50px">
+<h1 style="color: red;">Login Page</h1>
+	<table>
+		<tr>
+			<td>Name:</td>
+			<td><input type="text" id="1"></td>
+		</tr>
+		<tr>
+			<td>Contact No.</td>
+			<td><input type="text" id="2"></td>
+		</tr>
+		<tr>
+			<td>Password:</td>
+			<td><input type="Password" id="3"></td>
+		</tr>
+		<tr>
+			<td>Re-Type Password:</td>
+			<td><input type="Password" id="4"></td>
+		</tr>
+		<tr>
+			<td>Zip Code:</td>
+			<td><input type="text" id="5"></td>
+		</tr>
+		<tr>
+			<td>Country:</td>
+			<td>
+				<select id="6">
+					<option value="-1">Select Your Country</option>
+					<option value="1">USA</option>
+					<option value="2">Uk</option>
+					<option value="3">India</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>EMail:</td>
+			<td><input type="text" id="7"></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit"value="submit" style="background-color: green; color: white;"></td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+		function validate()
+		{
+			if(document.getElementById("1").value=="")
+			{
+				alert("Please provide your name!")
+				document.getElementById("1").focus();
+				return false;
+			}
+			a=document.getElementById("2").value
+			if(a==""||a.length!=10||isNaN(a))
+			{
+				alert("Please provide valid phone number!");
+				document.getElementById("2").focus();
+				return false;
+			}
+			a=document.getElementById("3").value;
+			b=document.getElementById("4").value;
+			if (a==""||a!=b)
+			{
+				alert("Please enter same Password");
+				document.getElementById("4").focus();
+				return false;
+			}
+			x=document.getElementById("5").value;
+			if(x==""||isNaN(x)||x.length!=6)
+			{
+				alert("Please enter valid zip code");
+				document.getElementById("5").focus();
+				return false;
+
+			}
+			if(document.getElementById("6").value=="-1")
+			{
+				alert("Please select your Country");
+				return false;
+			}
+			x=document.getElementById("7").value;
+			atpos=x.indexOf("@");
+			dotpos=x.indexOf(".");
+			dotposLast=x.lastIndexOf(".");
+			if(x==""||atpos==0||dotpos<=atpos+2||dotposLast+2>=x.length)
+			{
+				alert("Please provide correct Email id!");
+				document.getElementById("7").focus();
+				return false;
+			}
+			return(true);
+		}
+	</script>
+</form></center>
+</body>
+</html> 
